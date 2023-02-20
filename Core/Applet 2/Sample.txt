@@ -1,0 +1,435 @@
+[9:55 PM, 1/2/2023] CR👑📚🎓: 
+//To read data from a file and count the number of lines and characters
+import java.io.*;
+class CountLinesChars
+{
+	public static void main(String[] args) throws Exception
+	{
+	FileInputStream fin = new FileInputStream("Text.txt");
+	BufferedReader br = new BufferedReader(new InputStreamReader(fin));
+	int ch, c = 0, l=1;
+	while((ch=br.read())!=-1)
+	{
+		if((char)ch=='\n')
+		{
+			l++;
+		}
+		else
+		{
+			c++;
+		}
+	}
+	System.out.println("Lines: "+l+" Characters = "+c);
+	}
+}
+[9:55 PM, 1/2/2023] CR👑📚🎓: import java.io.*;
+class FileCopy
+{
+	public static void main(String[] args) throws Exception
+	{
+		FileInputStream fin = new FileInputStream("Seminar refernces.txt");
+		BufferedReader br = new BufferedReader(new InputStreamReader(fin));
+		FileOutputStream fout = new FileOutputStream("Seminar refernces-1.txt");
+		PrintWriter pw = new PrintWriter(fout, true);
+		String ch;
+		while((ch=br.readLine())!= null)
+		{
+			pw.println(ch);
+		}
+		System.out.println("File copied successfully");
+	}
+}
+[9:55 PM, 1/2/2023] CR👑📚🎓: //To read contents of file and display it on console
+import java.io.*;
+class FileInput
+{
+	public static void main(String[] args) throws Exception
+	{
+		FileInputStream fin = new FileInputStream("Seminar refernces.txt");
+		BufferedReader br = new BufferedReader(new InputStreamReader(fin));
+		int ch;
+		while((ch=br.read())!= -1)
+		{
+			System.out.print((char)ch);
+		}
+	}
+}
+[9:55 PM, 1/2/2023] CR👑📚🎓: //To read data from a file and count the number of lines and characters
+import java.io.*;
+import java.util.*;
+class FileRev
+{
+	public static void main(String args[])throws Exception
+	{
+		FileInputStream fin= new FileInputStream("Numbers.txt");
+		BufferedReader br = new BufferedReader(new InputStreamReader(fin));
+		FileOutputStream fout = new FileOutputStream("Sorted.txt");
+		PrintWriter pw = new PrintWriter(fout,true);
+		String count;
+		Vector v = new Vector();
+		while((count=br.readLine())!= null)
+		{
+			v.add(Integer.parseInt(count));
+		} 
+		Collections.sort(v);
+		System.out.println(v);
+		pw.println(v);
+		System.out.println("Sorted Successfully");
+	}
+}
+[9:55 PM, 1/2/2023] CR👑📚🎓: import java.io.*;
+class ReverseContents
+{
+	public static void main(String[] args) throws Exception
+	{
+		FileInputStream fin = new FileInputStream("Text.txt");
+		BufferedReader br = new BufferedReader(new InputStreamReader(fin));
+		FileOutputStream fout = new FileOutputStream("Rev.txt");
+		PrintWriter pw = new PrintWriter(fout, true);
+		StringBuffer sb = new StringBuffer();
+		String ch;
+		while((ch=br.readLine())!= null)
+		{	
+			sb.append(ch);
+		}
+		sb.reverse();
+		System.out.println(sb);
+		pw.println(sb);
+		System.out.println("Reversed successfully");
+		
+	}
+}
+[9:55 PM, 1/2/2023] CR👑📚🎓: import java.io.FileInputStream;  
+public class FileDemo2 {  
+     public static void main(String args[]){    
+          try{    
+            FileInputStream fin=new FileInputStream("Content.txt");    
+            int i=0;  
+            while((i=fin.read())!=-1){    
+             System.out.print((char)i);    
+            }   
+               
+          }catch(Exception e){System.out.println(e);}    
+         }    
+        }
+[9:55 PM, 1/2/2023] CR👑📚🎓: import java.applet.*;
+import java.awt.*;
+/*<applet code="Param.class" width="600" height="450">
+<param name = "t1" value="Hari Prasad"><param  name ="t2" value="101">
+</applet>*/
+public class Param extends Applet
+{
+	String n, id;
+	public void init()
+	{
+		n=getParameter("t1");
+		id=getParameter("t2");
+	}
+	public void paint(Graphics g)
+	{
+		g.drawString("Name: "+n, 100,100);
+		g.drawString("Id: "+id,100,150);
+	}
+}
+[9:55 PM, 1/2/2023] CR👑📚🎓: import java.applet.*;
+import java.awt.*;
+import java.awt.event.*;
+/*<applet code="MouseEventDemo.class" width="300" height="400">
+</applet>*/
+public class MouseEventDemo extends Applet implements MouseListener, MouseMotionListener
+{
+	String msg = " ";
+	int x = 0, y = 0;
+	public void init()
+	{
+		addMouseListener(this);
+		addMouseMotionListener(this);
+	}
+	public void mouseClicked(MouseEvent me)
+	{
+		x=me.getX();
+		y=me.getY();
+		msg = "Mouse clicked";
+		repaint();
+	}
+	public void mousePressed(MouseEvent me)
+	{
+		x=me.getX();
+		y=me.getY();
+		msg = "Pressing mouse button";
+		repaint();
+	}
+	public void mouseReleased(MouseEvent me)
+	{
+		x=me.getX();
+		y=me.getY();
+		msg = "Releasing mouse button";
+		repaint();
+	}
+	public void mouseEntered(MouseEvent me)
+	{
+		x=0;…
+[9:55 PM, 1/2/2023] CR👑📚🎓: import java.applet.*;
+import java.awt.*;
+import java.awt.event.*;
+/*<applet code="KeyboardDemo.class" width="300" height="400">
+</applet>*/
+public class KeyboardDemo extends Applet implements KeyListener
+{
+	String msg = " ";
+	public void init()
+	{
+		addKeyListener(this);
+	}
+	public void keyPressed(KeyEvent e)
+	{
+		showStatus("Key Pressed");
+	}
+	public void keyReleased(KeyEvent e)
+	{
+		showStatus("Key Released");
+	}
+	public void keyTyped(KeyEvent e)
+	{
+		Font f = new Font("Times New Roman",Font.BOLD,30);
+		msg+=e.getKeyChar();
+		setFont(f);
+		repaint();
+	}
+	public void paint(Graphics g)
+	{
+		this.setSize(500,500);
+		g.drawString(msg,30,30);
+	}
+}//Keyboard Events
+[9:55 PM, 1/2/2023] CR👑📚🎓: import java.applet.Applet;  
+import java.awt.*;  
+  
+public class GraphicsDemo extends Applet{  
+  
+public void paint(Graphics g){  
+g.setColor(Color.black);  
+g.drawString("Welcome",50, 50);  
+g.drawLine(20,30,20,300);  
+g.drawRect(70,100,30,30);  
+g.fillRect(170,100,30,30);   
+  
+g.setColor(Color.pink);  
+g.fillOval(170,200,30,30);  
+g.drawArc(90,150,30,30,30,270);  
+g.fillArc(270,150,30,30,0,180);  
+  
+}  
+}
+[9:55 PM, 1/2/2023] CR👑📚🎓: import java.applet.*;
+import java.awt.*;
+/*<applet code = "StringCount.class"width = 400 height=400>
+<PARAM name = "sname" Value = "Java Programming">
+</applet>*/
+public class StringCount extends Applet
+{	
+	String s1;
+	public void init()
+	{
+		s1=getParameter("sname");
+	}
+	public void paint(Graphics g)
+	{
+		int count=0;
+		for(int i=0;i<s1.length();i++)
+		{
+			if(s1.charAt(i)!=' ')
+			{
+				count++;
+			}
+		}
+		g.drawString(s1,150,100);
+		g.drawString("Characters count:" +String.valueOf(count), 150, 150);
+	}
+}
+[9:55 PM, 1/2/2023] CR👑📚🎓: //Moving Banner
+import java.applet.*;
+import java.awt.*;
+/*<applet code="MovingBanner.class" width="300" height="400">
+</applet>*/
+public class MovingBanner extends Applet implements Runnable
+{
+	String msg = "Welcome to Java Applet ";
+	Thread t;
+	public void init()
+	{
+		setBackground(Color.cyan);
+		setForeground(Color.red);
+	}
+	public void start()
+	{
+		t=new Thread(this);
+		t.start();
+	}
+	public void run()
+	{
+		while(true)
+		{
+			try
+			{
+				repaint();
+				Thread.sleep(100);
+			}
+			catch(InterruptedException e){}
+		}
+	}
+	public void paint(Graphics g)
+	{
+		char ch;
+		ch = msg.charAt(0);
+		msg = msg.substring(1,msg.length());
+		msg+=ch;
+		g.drawString(msg, 50, 50);
+	}
+}
+[9:55 PM, 1/2/2023] CR👑📚🎓: import java.awt.*;
+import java.applet.*;
+//<applet code="MovingRect.class" width=400 height=400></applet>
+public class MovingRect extends Applet implements Runnable{
+	int xRect=150;
+	int yRect=55;
+	public void init(){
+		setBackground(Color.blue);
+		setForeground(Color.white);
+	}
+	public void start(){
+		Thread th = new Thread(this);
+		th.start();
+	}
+	public void stop(){
+		
+	}
+	public void paint(Graphics g){
+		g.drawString("MOVING RECTANGLE:", 100, 50);
+		g.drawRect(xRect, yRect, 60, 60);
+		g.setColor(Color.pink);
+		g.fillRect(xRect, yRect, 60, 60);
+	}
+	public void run(){
+		while(true){
+			xRect=xRect+1;
+			repaint();
+			try{
+				Thread.sleep(20);
+			}
+			catch(Exception e){ }
+		}
+	}
+}
+[9:55 PM, 1/2/2023] CR👑📚🎓: //Content inside a rectangle
+import java.applet.*;
+import java.awt.*;
+public class NameBox extends Applet
+{
+	public void paint(Graphics g)
+	{
+		g.drawRect(150, 100, 100,50);
+		g.drawString("Anjali", 180, 120);
+	}
+//<applet code = "NameBox.class" width="400" height="400"></applet>
+}
+[9:55 PM, 1/2/2023] CR👑📚🎓: //Counting number of characters
+import java.applet.*;
+import java.awt.*;
+/*<applet code = "StringCount.class"width = 400 height=400>
+<PARAM name = "sname" Value = "Java Programming">
+</applet>*/
+public class StringCount extends Applet
+{	
+	String s1;
+	public void init()
+	{
+		s1=getParameter("sname");
+	}
+	public void paint(Graphics g)
+	{
+		int count=0;
+		for(int i=0;i<s1.length();i++)
+		{
+			if(s1.charAt(i)!=' ')
+			{
+				count++;
+			}
+		}
+		g.drawString(s1,150,100);
+		g.drawString("Characters count:" +String.valueOf(count), 150, 150);
+	}
+}
+[9:55 PM, 1/2/2023] CR👑📚🎓: //Keyboard Events
+import java.applet.Applet; 
+ import java.awt.*; 
+ import java.awt.event.*; 
+//<applet code = "AppletKeyboard.class" width="600" height="400"></applet>
+ public class AppletKeyboard extends Applet implements KeyListener 
+   { 
+        TextField t,tt,tp,tr; 
+         public void init() 
+         { 
+                 t=new TextField(20); 
+                 t.addKeyListener(this); 
+                 tt=new TextField(70); 
+                 tp=new TextField(70); 
+                 tr=new TextField(70); 
+                 add(t); 
+                 add(tt); 
+                 add(tr); 
+                 add(tp); 
+         }  
+         public void keyTyped(KeyEvent e) 
+         { 
+          	tt.setText("key Typed "+e.getKeyChar()); 
+         }  
+         pu…
+[9:55 PM, 1/2/2023] CR👑📚🎓: import java.applet.*;
+import java.awt.*;
+import java.awt.event.*;
+public class LuckyPos extends Applet implements MouseMotionListener
+{
+	String msg="";
+	int mousex=0;
+	int mousey=0;
+	public void init()
+	{
+		addMouseMotionListener(this);	
+	}
+	
+	public void paint(Graphics g)
+	{
+		g.drawString(msg,50,50);
+	}
+	
+	public void mouseMoved(MouseEvent me)
+	{
+		mousex=me.getX();
+		mousey=me.getY();
+		int gcd=1;
+		for(int i=2;i<mousey;i++)
+		{
+			if(mousex % i== 0 && mousey % i == 0)
+					gcd=2;
+		}
+		if(gcd==1)
+		{
+			msg="Lucky Spot";
+			showStatus("Lucky spot co-ordinates : "+mousex+","+mousey);
+			repaint();
+		}
+		else
+		{
+			msg="Regular spot";
+			showStatus("Regular spot co-ordinates : "+mousex+","+mousey);
+			repaint();
+		}
+	}
+	
+	public void mouseDragged(MouseEvent me)
+	{
+		showStatus("Moving at: "+me.getX()+","+me.getY());
+	}
+}
+//<applet code = "LuckyPos.java" height="300" width="300"></applet>
